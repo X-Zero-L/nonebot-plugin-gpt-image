@@ -69,7 +69,6 @@ async def edit_image(
     Returns:
         ImagesResponse: OpenAI响应对象
     """
-    # 使用OpenAI的图片编辑API
     response = await client.images.edit(
         model=model,
         image=images,

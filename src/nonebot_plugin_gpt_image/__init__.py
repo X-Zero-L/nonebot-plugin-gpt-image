@@ -43,7 +43,7 @@ image_cmd = on_alconna(
     Alconna(
         "/gpt生图",
         Args["prompt", str],
-        Args["image?", AllParam],  # 可选的图像参数
+        Args["image?", AllParam],
         Option("-尺寸|-s", Args["size", str], help_text="图像尺寸: 方形/竖版/横版"),
         Option("-质量|-q", Args["quality", str], help_text="图像质量: 低/中/高/自动"),
     ),
@@ -73,8 +73,10 @@ def parse_size(size_str: str) -> ImageSize:
         "横版": ImageSize.LANDSCAPE,
         "横图": ImageSize.LANDSCAPE,
         "landscape": ImageSize.LANDSCAPE,
+        "自动": ImageSize.AUTO,
+        "auto": ImageSize.AUTO,
     }
-    return size_map.get(size_str.lower(), ImageSize.SQUARE)
+    return size_map.get(size_str.lower(), ImageSize.AUTO)
 
 
 def parse_quality(quality_str: str) -> ImageQuality:
@@ -87,6 +89,7 @@ def parse_quality(quality_str: str) -> ImageQuality:
         "low": ImageQuality.LOW,
         "medium": ImageQuality.MEDIUM,
         "high": ImageQuality.HIGH,
+        "auto": ImageQuality.AUTO,
     }
     return quality_map.get(quality_str.lower(), ImageQuality.AUTO)
 

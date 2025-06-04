@@ -7,8 +7,9 @@ class ImageSize(str, Enum):
     """图像尺寸选项"""
 
     SQUARE = "1024x1024"
-    PORTRAIT = "1024x1792"
-    LANDSCAPE = "1792x1024"
+    PORTRAIT = "1024x1536"
+    LANDSCAPE = "1536x1024"
+    AUTO = "auto"
 
 
 class ImageQuality(str, Enum):
